@@ -123,6 +123,7 @@ public class Calculator : MonoBehaviour
             Fact_Results.text = "" + secondValue + "";
         }
 
+
     }
 }
 
