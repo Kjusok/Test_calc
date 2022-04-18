@@ -219,7 +219,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672929866}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: Get_first_value
+        m_MethodName: GetFirstvalue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -453,7 +453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -481,7 +481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Click_pow
+      value: ClickPow
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
@@ -765,7 +765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Click_division
+      value: ClickDivision
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -828,7 +828,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.7494965, y: -274}
+  m_AnchoredPosition: {x: -1.7495117, y: -274}
   m_SizeDelta: {x: -82.499, y: -628.8525}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &528042283
@@ -1128,7 +1128,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672929866}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: Get_second_value
+        m_MethodName: GetSecondValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1361,7 +1361,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672929866}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: Click_min
+        m_MethodName: ClickMin
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1440,7 +1440,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FirstValueInput: {fileID: 57502993}
   SecondValueInput: {fileID: 840292978}
-  Fact_Results: {fileID: 2139159542}
+  FactResults: {fileID: 2139159542}
   firstValue: 0
   secondValue: 0
 --- !u!4 &1672929867
@@ -1570,7 +1570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Click_multiplication
+      value: ClickMultiplication
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1683,7 +1683,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1672929866}
         m_TargetAssemblyTypeName: Calculator, Assembly-CSharp
-        m_MethodName: Click_max
+        m_MethodName: ClickMax
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1931,7 +1931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Click_minus
+      value: ClickMinus
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -2330,7 +2330,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Click_plus
+      value: ClickPlus
       objectReference: {fileID: 0}
     - target: {fileID: 5809031083631416378, guid: e958ea82786b1884e856d031609d7ee4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
