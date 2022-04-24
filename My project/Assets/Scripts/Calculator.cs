@@ -5,97 +5,122 @@ using UnityEngine.UI;
 
 public class Calculator : MonoBehaviour
 {
-    public InputField FirstValueInput;
-    public InputField SecondValueInput;
-
-    public Text FactResults;
+  
+    public InputField FirstValInput;
+    public InputField SecValInput;
 
     public float firstValue;
     public float secondValue;
 
-    // Start is called before the first frame update
+    public string operation;
+
+
     public void Start()
     {
-        FactResults.text = "";
+        
+        FirstValInput.text = "0";
+        
     }
 
-    public void GetFirstvalue()
+    
+    public void Plus()
     {
-       float.TryParse(FirstValueInput.text, out firstValue);
+       float.TryParse(FirstValInput.text, out firstValue);
+       operation = "+";
     }
-    public void GetSecondValue()
+    public void Minus()
     {
-       float.TryParse(SecondValueInput.text, out secondValue);
+        float.TryParse(FirstValInput.text, out firstValue);
+        operation = "-";
     }
-    public void ClickPlus()
+    public void Multi()
     {
-        float sum = firstValue + secondValue;
+        float.TryParse(FirstValInput.text, out firstValue);
+        operation = "*";
+    }
+    public void Div()
+    {
+        float.TryParse(FirstValInput.text, out firstValue);
+        operation = "/";
+    }
+    public void Pow()
+    {
+        float.TryParse(FirstValInput.text, out firstValue);
+        operation = "^";
+    }
+    public void Max()
+    {
+        float.TryParse(FirstValInput.text, out firstValue);
+        operation = ">";
+    }
+    public void Min()
+    {
+        float.TryParse(FirstValInput.text, out firstValue);
+        operation = "<";
 
-        FactResults.text = "" + sum + "";
-        if (firstValue == 0)
-        {
-            FactResults.text = "Forgot to enter the first value?!";
-        }
-            }
-    public void ClickMinus()
-    {
-        float DifferenceOfValues = firstValue - secondValue;
-        FactResults.text = "" + DifferenceOfValues + "";
     }
-    public void ClickMultiplication()
-    {
-        float MultiplicationOfValues = firstValue * secondValue;
-        FactResults.text = "" + MultiplicationOfValues + "";
-        if (firstValue == 0)
+
+    public void GetAnswer()
         {
-            FactResults.text = "Forgot to enter the first value?!";
-        }
+
+            float.TryParse(SecValInput.text, out secondValue);
+            if (firstValue != 0 && secondValue != 0 && !string.IsNullOrEmpty(operation)) ;
+            {
+                switch (operation)
+                {
+                    case "+":
+                        float sum = firstValue + secondValue;
+                        FirstValInput.text = "" + sum + "";
+                        break;
+                    case "-":
+                        float DifferenceOfValues = firstValue - secondValue;
+                        FirstValInput.text = "" + DifferenceOfValues + "";
+                        break;
+                    case "*":
+                        float MultiplicationOfValues = firstValue * secondValue;
+                        FirstValInput.text = "" + MultiplicationOfValues + "";
+                         break;
+                    case "/":
+                         float DivisionOfValues = firstValue / secondValue;
+                         FirstValInput.text = "" + DivisionOfValues + "";
+                    if (secondValue == 0)
+                    {
+                        FirstValInput.text = "На ноль делить нельзя!";
                     }
-    public void ClickDivision()
-    {
-        float DivisionOfValues = firstValue / secondValue;
-                FactResults.text = "" + DivisionOfValues + "";
-        if (secondValue == 0)
-        {
-            FactResults.text = "Dude, you can't divide by 0.";
-        }
+                    break;
+                    case "^":
+                        float pow = Mathf.Pow(firstValue, secondValue);
+                        FirstValInput.text = "" + pow + "";
+                    break;
+                case ">":
+                    if (firstValue >= secondValue)
+                    {
+                        FirstValInput.text = "" + firstValue + "";
+                    }
+                    else FirstValInput.text = "" + secondValue + "";
+                    break;
+                case "<":
+                    if (firstValue <= secondValue)
+                    {
+                        FirstValInput.text = "" + firstValue + "";
+                    }
+                    else FirstValInput.text = "" + secondValue + "";
+                    break;
 
+            }
+
+
+            }
+
+
+
+
+        } 
+      
+
+   
     }
-        public void ClickPow()
-    {
-        float pow = Mathf.Pow(firstValue, secondValue);
-
-        FactResults.text = "" + pow + "";
-        if (firstValue == 0)
-        {
-            FactResults.text = "Forgot to enter the first value?!";
-        }
-            }
-        public void ClickMax()
-    {
-        if (firstValue >= secondValue)
-        {
-            FactResults.text = "" + firstValue + "";
-        }
-        if (firstValue <= secondValue)
-        {
-            FactResults.text = "" + secondValue + "";
-        }
-            }
-        public void ClickMin()
-    {
-        if (firstValue <= secondValue)
-        {
-            FactResults.text = "" + firstValue + "";
-        }
-        if (firstValue >= secondValue)
-        {
-            FactResults.text = "" + secondValue + "";
-        }
-            }
-}
-
-
+ 
 
 
 
