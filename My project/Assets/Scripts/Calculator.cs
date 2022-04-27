@@ -7,6 +7,7 @@ public class Calculator : MonoBehaviour
 {
     public InputField FirstValInput;
     public InputField SecValInput;
+    public Text Rad;
 
     public float firstValue;
     public float secondValue;
@@ -67,6 +68,70 @@ public class Calculator : MonoBehaviour
         float.TryParse(FirstValInput.text, out firstValue);
         float Log2 = Mathf.Log(firstValue,2);
         FirstValInput.text = "" + Log2 + "";
+    }
+    public void Sin()
+    {
+        float.TryParse(FirstValInput.text, out firstValue);
+        switch (Rad.text)
+        {
+            case "Rad": 
+         float Sin = Mathf.Sin(firstValue);
+        FirstValInput.text = "" + Sin + "";
+                break;
+            case "Deg":
+                
+                firstValue= Mathf.PI * firstValue/180;
+                float SinDeg = Mathf.Sin(firstValue);
+                FirstValInput.text = "" + SinDeg + "";
+                break;
+        }
+    }
+    public void Cot()
+    {
+        float.TryParse(FirstValInput.text, out firstValue);
+        switch(Rad.text)
+        {
+            case "Rad":
+                float Cot = (Mathf.Cos(firstValue) / Mathf.Sin(firstValue));
+                FirstValInput.text = "" + Cot + "";
+                break;
+            case "Deg":
+                firstValue = Mathf.PI * firstValue / 180;
+                float CotDeg = (Mathf.Cos(firstValue) / Mathf.Sin(firstValue));
+                FirstValInput.text = "" + CotDeg + "";
+                break;
+
+        }
+    }
+    public void Pi()
+    {
+        double PiVal = Mathf.PI;
+        FirstValInput.text = ""+PiVal+"";
+    }
+    public void Factorize()
+    {
+        float.TryParse(FirstValInput.text, out firstValue);
+        firstValue = Mathf.Round(firstValue);
+        int divider = 2;
+        FirstValInput.text = "" + firstValue + "" + "=1";
+        while (firstValue > 1)
+        {
+            while (firstValue % divider == 0)
+            {
+                FirstValInput.text += "*"+"" + divider + "";
+                firstValue = firstValue / divider;
+            }
+            divider++;
+        }
+        
+    }
+    public void RadDeg()
+    {
+        if (Rad.text == "Rad") 
+        {
+            Rad.text = "Deg";
+        }
+         else Rad.text = "Rad";
     }
     // numbers
     public void one()
