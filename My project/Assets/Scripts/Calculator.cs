@@ -1,298 +1,183 @@
   
 using UnityEngine;
 using UnityEngine.UI;
-
-
 public class Calculator : MonoBehaviour
 {
     public InputField FirstValInput;
     public InputField SecValInput;
     public Text Rad;
 
-    public float firstValue;
-    public float secondValue;
+    public float FirstValue;
+    public float SecondValue;
 
-    public string operation;
+    public string Operation;
     public bool InputSecondValue;
-    
+
     public void Start()
     {
         FirstValInput.text = "0";
         InputSecondValue = false;
     }
-
     // operations
-    public void CE ()
+    public void Zeroing()
     {
         FirstValInput.text = "0";
-        operation = null;
+        Operation = null;
+    }
+    public void Operations()
+    {
+        float.TryParse(FirstValInput.text, out FirstValue);
+        InputSecondValue = true;
     }
     public void Plus()
     {
-       float.TryParse(FirstValInput.text, out firstValue);
-       operation = "+";
-        InputSecondValue = true;
+        Operation = "+";
     }
     public void Minus()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        operation = "-";
-        InputSecondValue = true;
+        Operation = "-";
     }
     public void Multi()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        operation = "*";
-        InputSecondValue = true;
+        Operation = "*";
     }
     public void Div()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        operation = "/";
-        InputSecondValue = true;
+        Operation = "/";
     }
     public void Pow()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        operation = "^";
-        InputSecondValue = true;
+        Operation = "^";
     }
     public void Log10()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        float Log10 = Mathf.Log10(firstValue);
+        float.TryParse(FirstValInput.text, out FirstValue);
+        float Log10 = Mathf.Log10(FirstValue);
         FirstValInput.text = "" + Log10 + "";
     }
     public void Log2()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        float Log2 = Mathf.Log(firstValue,2);
+        float.TryParse(FirstValInput.text, out FirstValue);
+        float Log2 = Mathf.Log(FirstValue, 2);
         FirstValInput.text = "" + Log2 + "";
     }
     public void Sin()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
+        float.TryParse(FirstValInput.text, out FirstValue);
         switch (Rad.text)
         {
-            case "Rad": 
-         float Sin = Mathf.Sin(firstValue);
-        FirstValInput.text = "" + Sin + "";
+            case "Rad":
+                float Sin = Mathf.Sin(FirstValue);
+                FirstValInput.text = "" + Sin + "";
                 break;
             case "Deg":
-                
-                firstValue= Mathf.PI * firstValue/180;
-                float SinDeg = Mathf.Sin(firstValue);
+                FirstValue = Mathf.PI * FirstValue / 180;
+                float SinDeg = Mathf.Sin(FirstValue);
                 FirstValInput.text = "" + SinDeg + "";
                 break;
         }
     }
     public void Cot()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        switch(Rad.text)
+        float.TryParse(FirstValInput.text, out FirstValue);
+        switch (Rad.text)
         {
             case "Rad":
-                float Cot = (Mathf.Cos(firstValue) / Mathf.Sin(firstValue));
+                float Cot = (Mathf.Cos(FirstValue) / Mathf.Sin(FirstValue));
                 FirstValInput.text = "" + Cot + "";
                 break;
             case "Deg":
-                firstValue = Mathf.PI * firstValue / 180;
-                float CotDeg = (Mathf.Cos(firstValue) / Mathf.Sin(firstValue));
+                FirstValue = Mathf.PI * FirstValue / 180;
+                float CotDeg = (Mathf.Cos(FirstValue) / Mathf.Sin(FirstValue));
                 FirstValInput.text = "" + CotDeg + "";
                 break;
-
         }
     }
     public void Pi()
     {
         double PiVal = Mathf.PI;
-        FirstValInput.text = ""+PiVal+"";
+        FirstValInput.text = "" + PiVal + "";
     }
     public void Factorize()
     {
-        float.TryParse(FirstValInput.text, out firstValue);
-        firstValue = Mathf.Round(firstValue);
+        float.TryParse(FirstValInput.text, out FirstValue);
+        FirstValue = Mathf.Round(FirstValue);
         int divider = 2;
-        FirstValInput.text = "" + firstValue + "" + "=1";
-        while (firstValue > 1)
+        FirstValInput.text = "" + FirstValue + "" + "=1";
+        while (FirstValue > 1)
         {
-            while (firstValue % divider == 0)
+            while (FirstValue % divider == 0)
             {
-                FirstValInput.text += "*"+"" + divider + "";
-                firstValue = firstValue / divider;
+                FirstValInput.text += "*" + "" + divider + "";
+                FirstValue = FirstValue / divider;
             }
             divider++;
         }
-        
     }
     public void RadDeg()
     {
-        if (Rad.text == "Rad") 
+        if (Rad.text == "Rad")
         {
             Rad.text = "Deg";
         }
-         else Rad.text = "Rad";
+        else Rad.text = "Rad";
     }
     // numbers
-    public void one()
-    {
-            if (FirstValInput.text == "0")
-            {
-                FirstValInput.text = "1";
-            }
-            else
-            {
-                FirstValInput.text += "1";
-            }
-            if (InputSecondValue) 
-            {
-            InputSecondValue = false;
-            FirstValInput.text = "1";
-            }
-    }
-    public void two()
+    public void InputNumbers(int number)
     {
         if (FirstValInput.text == "0")
         {
-            FirstValInput.text = "2";
+            FirstValInput.text = number.ToString();
         }
         else
         {
-            FirstValInput.text += "2";
+            FirstValInput.text += number.ToString();
         }
         if (InputSecondValue)
         {
             InputSecondValue = false;
-            FirstValInput.text = "2";
+            FirstValInput.text = number.ToString();
         }
     }
-    public void three()
+    public void One()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "3";
-        }
-        else
-        {
-            FirstValInput.text += "3";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "3";
-        }
+        InputNumbers(1);
+    }
+    public void Two()
+    {
+        InputNumbers(2);
+    }
+    public void Three()
+    {
+        InputNumbers(3);
     }
     public void Four()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "4";
-        }
-        else
-        {
-            FirstValInput.text += "4";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "4";
-        }
+        InputNumbers(4);
     }
     public void Five()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "5";
-        }
-        else
-        {
-            FirstValInput.text += "5";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "5";
-        }
+        InputNumbers(5);
     }
     public void Six()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "6";
-        }
-        else
-        {
-            FirstValInput.text += "6";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "6";
-        }
+        InputNumbers(6);
     }
     public void Seven()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "7";
-        }
-        else
-        {
-            FirstValInput.text += "7";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "7";
-        }
+        InputNumbers(7);
     }
     public void Eigth()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "8";
-        }
-        else
-        {
-            FirstValInput.text += "8";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "8";
-        }
+        InputNumbers(8);
     }
     public void Nine()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "9";
-        }
-        else
-        {
-            FirstValInput.text += "9";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "9";
-        }
+        InputNumbers(9);
     }
     public void Zero()
     {
-        if (FirstValInput.text == "0")
-        {
-            FirstValInput.text = "0";
-        }
-        else
-        {
-            FirstValInput.text += "0";
-        }
-        if (InputSecondValue)
-        {
-            InputSecondValue = false;
-            FirstValInput.text = "0";
-        }
+        InputNumbers(0);
     }
     public void Point()
     {
@@ -310,7 +195,7 @@ public class Calculator : MonoBehaviour
             FirstValInput.text = ",";
         }
     }
-    public void PlusOrMinus ()
+    public void PlusOrMinus()
     {
         if (FirstValInput.text == "0")
         {
@@ -328,40 +213,39 @@ public class Calculator : MonoBehaviour
     }
     //results
     public void GetAnswer()
+    {
+        float.TryParse(SecValInput.text, out SecondValue);
         {
-            float.TryParse(SecValInput.text, out secondValue);
+            switch (Operation)
             {
-                switch (operation)
-                {
-                    case "+":
-                        float sum = firstValue + secondValue;
-                        FirstValInput.text = "" + sum + "";
-                        break;
+                case "+":
+                    float sum = FirstValue + SecondValue;
+                    FirstValInput.text = "" + sum + "";
+                    break;
                 case "-":
-                        float DifferenceOfValues = firstValue - secondValue;
-                        FirstValInput.text = "" + DifferenceOfValues + "";
-                        break;
-                    case "*":
-                        float MultiplicationOfValues = firstValue * secondValue;
-                        FirstValInput.text = "" + MultiplicationOfValues + "";
-                         break;
-                    case "/":
-                         float DivisionOfValues = firstValue / secondValue;
-                         FirstValInput.text = "" + DivisionOfValues + "";
-                    if (secondValue == 0)
+                    float DifferenceOfValues = FirstValue - SecondValue;
+                    FirstValInput.text = "" + DifferenceOfValues + "";
+                    break;
+                case "*":
+                    float MultiplicationOfValues = FirstValue * SecondValue;
+                    FirstValInput.text = "" + MultiplicationOfValues + "";
+                    break;
+                case "/":
+                    float DivisionOfValues = FirstValue / SecondValue;
+                    FirstValInput.text = "" + DivisionOfValues + "";
+                    if (SecondValue == 0)
                     {
                         FirstValInput.text = "На ноль делить нельзя!";
                     }
                     break;
-                    case "^":
-                        float pow = Mathf.Pow(firstValue, secondValue);
-                        FirstValInput.text = "" + pow + "";
+                case "^":
+                    float pow = Mathf.Pow(FirstValue, SecondValue);
+                    FirstValInput.text = "" + pow + "";
                     break;
             }
-            }
-        } 
-   
+        }
     }
+}
  
 
 
